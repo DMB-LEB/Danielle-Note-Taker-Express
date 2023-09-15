@@ -10,7 +10,7 @@ if (window.location.pathname === '/notes.html') {
   saveNoteBtn = document.querySelector('.save-note');
   newNoteBtn = document.querySelector('.new-note');
   noteList = document.querySelectorAll('.list-container .list-group');
-}
+};
 
 // Show an element
 const show = (elem) => {
@@ -77,9 +77,9 @@ const handleNoteSave = () => {
   });
 };
 
-// Delete the clicked note
+// Deletes the note when the trash icon is clicked
 const handleNoteDelete = (e) => {
-  // Prevents the click listener for the list from being called when the button inside of it is clicked
+  // Prevents the click listener event for the notes list from being called when the delete icon inside of it is clicked
   e.stopPropagation();
 
   const note = e.target;
@@ -102,12 +102,13 @@ const handleNoteView = (e) => {
   renderActiveNote();
 };
 
-// Sets the activeNote to and empty object and allows the user to enter a new note
+// Sets the activeNote to an empty note, so user can then enter a new note
 const handleNewNoteView = (e) => {
   activeNote = {};
   renderActiveNote();
 };
 
+// Renders save button
 const handleRenderSaveBtn = () => {
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
